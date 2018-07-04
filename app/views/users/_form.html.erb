@@ -1,0 +1,27 @@
+<% if @user.errors.any? %>
+	<h2>These errors prevent the form submiting</h2>
+	<ul>
+		<% @article.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+	<p>
+		<%= f.label :username %><br>
+		<%= f.text_field :username %>
+	</p>
+	<p>
+		<%= f.label :email %> <br>
+		<%= f.email_field :email %>
+	</p>
+	<p>
+		<%= f.label :password %> <br>
+		<%= f.password_field :password %>
+	</p>
+	<p>
+		<%= f.submit(@user.new_record? ? "Sign up" : "Update account")  %>
+	</p>
+
+<% end %> 
