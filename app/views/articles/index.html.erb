@@ -1,24 +1,4 @@
 <h1>Listing all Articles</h1>
 
-<%= link_to 'Create new article', new_article_path %>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Description</th>
-	</tr>
-
-	<% @articles.each do |article| %>
-	<tr>
-		<td><%= article.title %></td>
-		<td><%= article.description %></td>
-		<small>Created by: <%= article.user.username %></small>
-			<%= time_ago_in_words(article.created_at) %> ago,
-			last updated: <%= time_ago_in_words(article.updated_at) %>, ago
-		<td><%= link_to 'Edit', edit_article_path(article) %></td>
-		<td><%= link_to 'Show', article_path(article) %></td>
-		<td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}%></td>
-	</tr>
-	<% end %>
-</table>
-
+<%= render 'article', obj: @articles %>
 <%= link_to "Back to all articles", articles_path %>
