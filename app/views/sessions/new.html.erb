@@ -1,6 +1,6 @@
 <h1 align="center">Log in</h1>
 
-<%= form_for(:ssesion, :html => {class: 'form-horizontal', role:'form'}, url: login_path) do |f| %>
+<%= form_for(:session, :html => {class: 'form-horizontal', role:'form'}, url: login_path) do |f| %>
 	<p>
 		<%= f.label :email %> <br>
 		<%= f.email_field :email %>
