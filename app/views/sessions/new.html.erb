@@ -1,0 +1,16 @@
+<h1 align="center">Log in</h1>
+
+<%= form_for(:ssesion, :html => {class: 'form-horizontal', role:'form'}, url: login_path) do |f| %>
+	<p>
+		<%= f.label :email %> <br>
+		<%= f.email_field :email %>
+	</p>
+	<p>
+		<%= f.label :password %> <br>
+		<%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+	</p>
+	<p>
+		<%= f.submit "Log in", class: "btn btn-primary btn-lg"  %>
+	</p>
+
+<% end %> 
