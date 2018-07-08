@@ -18,8 +18,12 @@
 		</div>
 	</ul>
 <p>
-	Description: <%= @article.description %>
+	Description: <%= simple_format(@article.description) %>
 </p>
-
-<%= link_to 'Edit', edit_article_path(@article)%>
-<%= link_to "Back to all articles", articles_path %>
+<% if logged_in? && current_user == @article.user%>
+<%= link_to 'Edit', edit_article_path(@article), class: "btn btn_xs btn_primary" %>
+<%= link_to "delete this article", articles_path(@article), method: :delete,
+data: {confirm: "Are you sure?"},,
+class: "btn btn-xs btn-success" %>
+<% end %>
+<%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
