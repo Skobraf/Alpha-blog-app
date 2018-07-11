@@ -20,7 +20,7 @@
 <p>
 	Description: <%= simple_format(@article.description) %>
 </p>
-<% if logged_in? && current_user == @article.user%>
+<% if logged_in? && (current_user == @article.user && current_user.admin? )%>
 <%= link_to 'Edit', edit_article_path(@article), class: "btn btn_xs btn_primary" %>
 <%= link_to "delete this article", articles_path(@article), method: :delete,
 data: {confirm: "Are you sure?"},,
